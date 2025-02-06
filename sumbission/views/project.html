@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Bauman - Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav {
+            background: #222;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .icon {
+            width: 25px;
+            margin-left: auto;
+        }
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 80%;
+            margin: auto;
+            position: relative;
+        }
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .carousel-item img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+        }
+        .carousel-controls button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        footer {
+            background: #fefefe;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+        .instagram, .github {
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="project.html">Projects</a></li>
+        </ul>
+        <img src="favicon.png" class="icon" alt="Icon">
+    </nav>
+    
+    <main>
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="carousel-item">
+                    <h3>Dungeons and Dragons Game</h3>
+                    <img src="C:\Users\18dba\CSCI3308\lab-3-gui-development-daba4117\sumbission\resources\img\dnd.jpg" alt="DND Game">
+                    <p>After my introduction to computer science I created a simple game that is similar to Dungeons and Dragons that you play within the terminal.</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Platforming Game</h3>
+                    <img src="C:\Users\18dba\CSCI3308\lab-3-gui-development-daba4117\sumbission\resources\img\donkeykong.jpg" alt="Platformer Game">
+                    <p>I am currently working on a basic platforming game, similar to the original Donkey Kong games.</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Sim Racing Community</h3>
+                    <img src="C:\Users\18dba\CSCI3308\lab-3-gui-development-daba4117\sumbission\resources\img\communitylogo.jpg" alt="Community Logo">
+                    <p>This has been an ongoing project for me and a couple other people from around the globe. We host, organize, and moderate a global sim racing community that consists of over 500 people.</p>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <ul>
+            <a href="https://www.instagram.com/dbau50/"><img src="C:\Users\18dba\CSCI3308\lab-3-gui-development-daba4117\sumbission\resources\img\img2.png" class="instagram" alt="Instagram"></a>
+            <a href="https://github.com/daba4117"><img src="C:\Users\18dba\CSCI3308\lab-3-gui-development-daba4117\sumbission\resources\img\img3.png" class="github" alt="GitHub"></a>
+        </ul>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const carouselContainer = document.querySelector('.carousel-container');
+            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+    </script>
+</body>
+</html>
